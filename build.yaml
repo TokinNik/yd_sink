@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      slang_build_runner:
+        options:
+          base_locale: ru
+          fallback_strategy: base_locale
+          input_directory: lib/ui/localization
+          translate_var: S

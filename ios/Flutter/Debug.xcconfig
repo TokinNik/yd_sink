@@ -1,0 +1,5 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+#include "Generated.xcconfig"
+app_name_prefix=DEV.
+bundle_id_suffix=.dev
+FLUTTER_TARGET=lib/main_dev.dart

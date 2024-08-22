@@ -1,0 +1,182 @@
+{
+  "common": {
+    "yes": "Да",
+    "no": "Нет",
+    "next": "Далее",
+    "error_title": "Ошибка",
+    "ok": "Ок",
+    "cancel": "Отменить",
+    "save": "Сохранить",
+    "error": "Ошибка",
+    "version": "Версия ${version}"
+  },
+  "input_empty_error": "Поле не может быть пустым",
+  "sign_in": {
+    "authorisation": "Авторизация",
+    "login_hint": "Логин...",
+    "password_hint": "Пароль...",
+    "policy_hint(rich)": "Согласен(-на) с усл-ми ${link(Политики конфиденциальности)}",
+    "enter": "Войти"
+  },
+  "projects_label": "Проекты",
+  "tasks": {
+    "search_hint": "Поиск по задачам",
+    "defects_tab": "Дефекты",
+    "work_check_tab": "Приёмка работ",
+    "add_defect_button": "Добавить дефект",
+    "sort_new_first": "Сначала новые"
+  },
+  "create_defect": {
+    "title": "Запись дефекта",
+    "choice_building_hint": "Выберите строение",
+    "choice_floor_hint": "Выберите этаж",
+    "name_hint": "Название",
+    "choice_contractor_hint": "Выберите подрядчика",
+    "choice_controller_hint": "Выберите контроль",
+    "task_description_hint": "Описание задачи",
+    "choice_creation_date_hint": "Выберите дату создания",
+    "choice_end_date_hint": "Выберите дату завершения",
+    "choice_regulatory_document_hint": "Выберите нормативный документ",
+    "choice_defect_type_hint": "Выберите вид дефекта",
+    "comment_hint": "Комментарий",
+    "building_label": "Строение",
+    "floor_label": "Этаж",
+    "contractor_label": "Подрядчик",
+    "controller_label": "Контроль",
+    "normative_doc_label": "Нормативный документ (от пользователя)",
+    "creation_date_label": "Дата создания",
+    "end_date_label": "Дата завершения",
+    "regulatory_document_label": "Нормативный документ",
+    "defect_type_label": "Вид дефекта",
+    "photos_label": "Фотографии",
+    "add_photo_button": "Добавить фото",
+    "location_on_plan_label": "Расположение на плане",
+    "set_location_on_plan_button": "Указать расположение",
+    "recorde_done_message": "Запись сохранена в черновики"
+  },
+  "add_photo": {
+    "title": "Добавление фото",
+    "make_photo_button": "Сделать фото",
+    "make_photo_load_from_gallery_button": "Загрузить из галереи"
+  },
+  "photo_gallery": {
+    "title": "Фото ${photoNumber} из ${photoCount}",
+    "delete_photo": "Удалить"
+  },
+  "popup": {
+    "warning_title": "Внимание!",
+    "warning_network_message": {
+      "zero": "Время вне сети составляет ${n} часов. \nПоследнее обновление совершено ${lastSync}",
+      "one": "Время вне сети составляет ${n} час. \nПоследнее обновление совершено ${lastSync}",
+      "two": "Время вне сети составляет ${n} часа. \nПоследнее обновление совершено ${lastSync}",
+      "few": "Время вне сети составляет ${n} часа. \nПоследнее обновление совершено ${lastSync}",
+      "many": "Время вне сети составляет ${n} часов. \nПоследнее обновление совершено ${lastSync}",
+      "other": "Время вне сети составляет ${n} часов. \nПоследнее обновление совершено ${lastSync}"
+    },
+    "network_connected_message": "Соединение восстановлено"
+  },
+  "defect_card": {
+    "contractor_label": "Подрядчик: ",
+    "work_check_label": "Приёмка работ: ",
+    "created_date_label": "Создано ${date}",
+    "building_and_floor_value": "Строение ${building}, Этаж ${floor}"
+  },
+  "filter": {
+    "sort_type_new_first": "Сначала новые",
+    "sort_type_old_first": "Сначала старые",
+    "drop_all_filters": "Сбросить фильтры",
+    "drop_all": "Сбросить всё",
+    "for_contractor": "Подрядчик",
+    "choice_contractor": "Выбор подрядчика",
+    "advanced_search_title": "Фильтры",
+    "task_type_label": "Тип задачи",
+    "contractor_label": "Подрядчик",
+    "select_contractor_hint": "Выберите подрядчика",
+    "structure_label": "Строение",
+    "select_structure_hint": "Выберите строение",
+    "status_label": "Статус",
+    "defect_type_label": "Вид дефекта",
+    "defect_create_time": "Дата создания дефекта",
+    "select_dates_period_hint": "Выберите период",
+    "select_dates_period_title": "Выбор периода",
+    "apply_button": "Найти задачи",
+    "reset_button": "Сбросить",
+    "list_settings_title": "Настройки списка",
+    "list_settings_filter": "Фильтр",
+    "list_settings_task_type": "Тип задачи",
+    "list_settings_contractor": "Подрядчик",
+    "list_settings_sort": "Сортировка",
+    "list_settings_view": "Отображение",
+    "choice_contractor_title": "Выбор подрядчика",
+    "filtered_task_count_label": {
+      "zero": "Найдено ${n} задач",
+      "one": "Найдена ${n} задача",
+      "two": "Найдено ${n} задачи",
+      "few": "Найдено ${n} задачи",
+      "many": "Найдено ${n} задач",
+      "other": "Найдено ${n} задач"
+    }
+  },
+  "selecting_dates": {
+    "title": "Выбор периода",
+    "select": "Применить"
+  },
+  "defect_draft": {
+    "number_title": "Дефект ${value}",
+    "edit_button": "Редактировать",
+    "commit_button": "Опубликовать",
+    "description_label": "Описание",
+    "continue_filling": "Продолжить заполнение"
+  },
+  "task_status": {
+    "DRAFT": "Черновик",
+    "NEW": "Новая",
+    "WAIT_WORKER": "В ожидании рабочего",
+    "WAIT_WORKER_SECOND_STAGE": "В ожидании рабочего (2 стадия)",
+    "IN_WORK": "В работе",
+    "COMPLETED": "Исправлено",
+    "FINISHED": "Завершено",
+    "FINISHED_NOT_ACCEPTED": "Завершено (Не подтверждено)",
+    "REFUSED": "Отменено",
+    "REVIEW": "Ревью"
+  },
+  "api_error": {
+    "no_server_response": "Сервер не отвечает. Попробуйте ещё раз.",
+    "server": "Ошибка сервера (код: ${httpCode})",
+    "generic_client": "Не удалось получить детали ошибки (код: ${httpCode})",
+    "no_server_connection": "Нет соединения с сервером. Проверьте соединение и попробуйте ещё раз.",
+    "unknown": "Ошибка сети (код: ${httpCode})",
+    "no_connection": "Нет соединения с интернетом",
+    "session_expired": "Сессия истекла. Войдите снова, чтобы продолжить работу.",
+    "forbidden": "Доступ запрещён.",
+    "connection_timeout": "Время ожидания истекло. Проверьте соединение и попробуйте ещё раз.",
+    "bad_request": "Запрос ${method} не распознан (код: ${httpCode})"
+  },
+  "defect_type": {
+    "REMOVABLE": "Устранимый",
+    "SIGNIFICANT": "Значительный",
+    "CRITICAL": "Критический"
+  },
+  "task_type": {
+    "ALL": "Все",
+    "DEFECT": "Дефект",
+    "WORK_CHECK": "Приёмка работ"
+  },
+  "task_view": {
+    "ALL": "Все задачи",
+    "MY_TASK": "Мои задачи"
+  },
+  "connection_message": {
+    "connection_lost": "Соединение потеряно",
+    "connection_resumed": "Соединение восстановлено"
+  },
+  "local_errors": {
+    "worker_and_contrator_is_same": "Контроль и Подрядчик не должны совпадать",
+    "select_floor_first": "Сначала выберите этаж",
+    "select_house_first": "Сначала выберите строение",
+    "building_has_no_floors": "У этого строения нет привязанных этажей",
+    "no_plans_on_this_floor": "У этого этажа нет привязанных планов",
+    "this_task_synk_in_progress": "Задача синхронизируется, пожалуйста подождите",
+    "logout_no_internet": "Отсутствует соединение с сетью Интернет. Выход из учетной записи невозможен"
+  }
+}

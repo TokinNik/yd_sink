@@ -1,0 +1,16 @@
+import 'package:template_app/data/core/local/drift.dart';
+import '../models/{{#withDatabase}}local{{/withDatabase}}/demo_dto.dart';
+
+class {{name.pascalCase()}}DaoService {
+  late final Drift _drift;
+
+  {{name.pascalCase()}}DaoService(this._drift);
+
+  Future<void> setDemo(DemoDtoCompanion data) async {
+    await _drift.into(_drift.demoDto).insertOnConflictUpdate(data);
+  }
+
+  Future<DemoDtoData> getDemo() async {
+    return await _drift.select(_drift.demoDto).getSingle();
+  }
+}

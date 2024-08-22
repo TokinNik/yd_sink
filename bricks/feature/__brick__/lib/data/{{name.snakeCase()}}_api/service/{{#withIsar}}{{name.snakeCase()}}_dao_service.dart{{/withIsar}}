@@ -1,0 +1,25 @@
+import 'package:isar/isar.dart';
+
+import '../models/{{#withDatabase}}local{{/withDatabase}}/demo_dto.dart';
+
+class {{name.pascalCase()}}DaoService {
+  late final Isar _isar;
+
+  {{name.pascalCase()}}DaoService(this._isar);
+
+  Future<DemoDto?> getDemo() async {
+    return await _isar.demoDtos.get(0);
+  }
+
+  Future<int> setDemo(DemoDto data) async {
+    return _isar.writeTxn(() async {
+      return await _isar.demoDtos.put(data);
+    });
+  }
+
+  Future<void> removeDemo() async {
+    return _isar.writeTxn(() async {
+      return await _isar.demoDtos.clear();
+    });
+  }
+}
