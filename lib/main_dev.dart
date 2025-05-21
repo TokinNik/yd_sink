@@ -1,7 +1,5 @@
-import 'package:template_app/core/configs/app_configs.dart';
-import 'package:template_app/main.dart';
-
-import 'core/configs/configs.dart';
+import 'package:YDsync/core/run_configs/app_configs.dart';
+import 'package:YDsync/main.dart';
 
 void main() {
   mainStarter(devConfig());

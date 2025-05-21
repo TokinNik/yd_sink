@@ -1,5 +1,5 @@
 bricks:
   screen:
-    path: bricks/screen
+    path: .bricks/screen
   feature:
-    path: bricks/feature
+    path: .bricks/feature
