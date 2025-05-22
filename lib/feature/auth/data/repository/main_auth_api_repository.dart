@@ -1,41 +1,32 @@
 import 'package:YDsync/feature/auth/data/mapper/token_mapper.dart';
+import 'package:YDsync/feature/auth/data/models/token_dto.dart';
+import 'package:flutter_login_yandex/flutter_login_yandex.dart';
 
 import '../../models/token_model.dart';
-import '../models/login_request.dart';
-import '../models/refresh_request.dart';
-import '../models/register_request.dart';
-import '../service/auth_service.dart';
 import '../service/main_auth_dao_service.dart';
 
 class AuthRepository {
-  final AuthService _serviceApi;
   final AuthDaoService _serviceDao;
 
   TokenModel? token;
 
-  AuthRepository(this._serviceApi, this._serviceDao);
+  AuthRepository(this._serviceDao);
 
   Future<void> init() async {
     var tokenDto = await _serviceDao.getToken();
     token = tokenDto?.toModel;
   }
 
-  Future<void> login(LoginRequest request) async {
-    var response = await _serviceApi.login(request);
-    token = response.toModel;
-    _serviceDao.setToken(response.toDto);
+  Future<void> login() async {
+    final yandexLogin = FlutterLoginYandex();
+    final result = await yandexLogin.signIn();
+    final tokenDTO = TokenDto(accessToken: result?['token'] as String, refreshToken: '');
+    token = tokenDTO.toModel;
+    _serviceDao.setToken(tokenDTO);
   }
 
-  Future<void> register(RegisterRequest request) async {
-    var response = await _serviceApi.register(request);
-    token = response.toModel;
-    _serviceDao.setToken(response.toDto);
-  }
-
-  Future<void> refresh(RefreshRequest request) async {
-    var response = await _serviceApi.refresh(request);
-    token = response.toModel;
-    _serviceDao.setToken(response.toDto);
+  Future<void> refresh() async {
+   // TODO(tnr): or delete
   }
 
   Future<void> logout() async {

@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:YDsync/core/data/network/dio_utils/dio_extensions.dart';
 import 'package:YDsync/environment/loggers/log.dart';
-import 'package:YDsync/feature/auth/data/models/refresh_request.dart';
 import 'package:YDsync/feature/auth/data/repository/main_auth_api_repository.dart';
 
 class AuthInterceptor extends QueuedInterceptorsWrapper {
@@ -16,10 +14,10 @@ class AuthInterceptor extends QueuedInterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final authToken = repository.token;
-    debugPrint('TOKEN: $authToken');
+    logD('AuthInterceptor:TOKEN: $authToken');
     if (authToken != null) {
-      var authTokenValue = authToken;
-      options.headers['Authorization'] = 'Bearer $authTokenValue';
+      var authTokenValue = authToken.accessToken;
+      options.headers['Authorization'] = 'OAuth $authTokenValue';
     }
     return super.onRequest(options, handler);
   }
@@ -43,7 +41,7 @@ class AuthInterceptor extends QueuedInterceptorsWrapper {
       }
 
       try {
-        await repository.refresh(RefreshRequest(refreshToken: repository.token?.refreshToken ?? ""));
+        // await repository.refresh(RefreshRequest(refreshToken: repository.token?.refreshToken ?? ""));
       } on DioException catch (e) {
         logD("MainAuthInterceptor:tryRefreshToken:error:${e.response?.statusCode}");
         repository.logout();

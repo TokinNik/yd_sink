@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:dart_extensions/dart_extensions.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
 
 /// Базовый класс состояния контролеров
@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 abstract class FormicState {
   List<FormicController> fields();
 
-  bool get hasError => fields().find((field) => field.hasError == true) != null;
+  bool get hasError => fields().firstWhereOrNull((field) => field.hasError == true) != null;
 
   void dispose() {
     for (var field in fields()) {

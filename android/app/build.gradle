@@ -47,6 +47,7 @@ android {
         targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        manifestPlaceholders = [YANDEX_CLIENT_ID:'734fc4106de5438598de6b61c8f8902e']
     }
 
     compileOptions {

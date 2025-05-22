@@ -49,5 +49,5 @@ class SettingStateNotificator extends ValueNotifier<SettingState> {
 }
 
 SettingStateNotificator settingStateNotificator = SettingStateNotificator(
-  SettingState(configType: ConfigType.dev, enableFileLog: false, themeMode: ThemeMode.system),
+  SettingState(configType: ConfigType.YANDEX_DISK_V1, enableFileLog: false, themeMode: ThemeMode.system),
 );

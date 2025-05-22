@@ -1,4 +1,4 @@
-enum ConfigType { dev, qa, demo, prod }
+enum ConfigType { YANDEX_DISK_V1 }
 
 class AppConfig {
   final String? schemaName;

@@ -1,10 +1,9 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:YDsync/core/app_global/auth_notifier.dart';
 import 'package:YDsync/core/models/data_state.dart';
 import 'package:YDsync/environment/loggers/log.dart';
-import 'package:YDsync/feature/auth/data/models/login_request.dart';
 import 'package:YDsync/feature/auth/data/repository/main_auth_api_repository.dart';
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 
 part 'temp_login_state.dart';
 
@@ -13,11 +12,11 @@ class TempLoginScreenCubit extends Cubit<TempLoginScreenState> {
 
   TempLoginScreenCubit(this._mainAuthApiRepository) : super(const TempLoginScreenState());
 
-  void login(String email, String password) async {
+  void login() async {
     emit(state.copyWith(login: state.login.loading()));
 
     try {
-      await _mainAuthApiRepository.login(LoginRequest(email: email, password: password));
+      await _mainAuthApiRepository.login();
 
       authStateNotificator.value = AuthState.auth;
 

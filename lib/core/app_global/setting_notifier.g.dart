@@ -12,17 +12,17 @@ SettingState _$SettingStateFromJson(Map<String, dynamic> json) => SettingState(
   themeMode: $enumDecode(_$ThemeModeEnumMap, json['themeMode']),
 );
 
-Map<String, dynamic> _$SettingStateToJson(SettingState instance) => <String, dynamic>{
-  'configType': _$ConfigTypeEnumMap[instance.configType]!,
-  'enableFileLog': instance.enableFileLog,
-  'themeMode': _$ThemeModeEnumMap[instance.themeMode]!,
-};
+Map<String, dynamic> _$SettingStateToJson(SettingState instance) =>
+    <String, dynamic>{
+      'configType': _$ConfigTypeEnumMap[instance.configType]!,
+      'enableFileLog': instance.enableFileLog,
+      'themeMode': _$ThemeModeEnumMap[instance.themeMode]!,
+    };
 
-const _$ConfigTypeEnumMap = {
-  ConfigType.dev: 'dev',
-  ConfigType.qa: 'qa',
-  ConfigType.demo: 'demo',
-  ConfigType.prod: 'prod',
-};
+const _$ConfigTypeEnumMap = {ConfigType.YANDEX_DISK_V1: 'YANDEX_DISK_V1'};
 
-const _$ThemeModeEnumMap = {ThemeMode.system: 'system', ThemeMode.light: 'light', ThemeMode.dark: 'dark'};
+const _$ThemeModeEnumMap = {
+  ThemeMode.system: 'system',
+  ThemeMode.light: 'light',
+  ThemeMode.dark: 'dark',
+};

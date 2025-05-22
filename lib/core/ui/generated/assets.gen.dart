@@ -13,7 +13,8 @@ class $AssetsGifsGen {
   const $AssetsGifsGen();
 
   /// File path: assets/gifs/snoop_dogg.gif
-  AssetGenImage get snoopDogg => const AssetGenImage('assets/gifs/snoop_dogg.gif');
+  AssetGenImage get snoopDogg =>
+      const AssetGenImage('assets/gifs/snoop_dogg.gif');
 
   /// List of all assets
   List<AssetGenImage> get values => [snoopDogg];
@@ -77,7 +78,8 @@ class $AssetsIconsGen {
   String get eye => 'assets/icons/eye.svg';
 
   /// File path: assets/icons/filterMenuItemContractor.svg
-  String get filterMenuItemContractor => 'assets/icons/filterMenuItemContractor.svg';
+  String get filterMenuItemContractor =>
+      'assets/icons/filterMenuItemContractor.svg';
 
   /// File path: assets/icons/filterMenuItemFilter.svg
   String get filterMenuItemFilter => 'assets/icons/filterMenuItemFilter.svg';
@@ -86,7 +88,8 @@ class $AssetsIconsGen {
   String get filterMenuItemSort => 'assets/icons/filterMenuItemSort.svg';
 
   /// File path: assets/icons/filterMenuItemTaskType.svg
-  String get filterMenuItemTaskType => 'assets/icons/filterMenuItemTaskType.svg';
+  String get filterMenuItemTaskType =>
+      'assets/icons/filterMenuItemTaskType.svg';
 
   /// File path: assets/icons/filterMenuItemView.svg
   String get filterMenuItemView => 'assets/icons/filterMenuItemView.svg';
@@ -187,7 +190,8 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   /// File path: assets/images/tempLogo.png
-  AssetGenImage get tempLogo => const AssetGenImage('assets/images/tempLogo.png');
+  AssetGenImage get tempLogo =>
+      const AssetGenImage('assets/images/tempLogo.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [tempLogo];

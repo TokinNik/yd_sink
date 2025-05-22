@@ -5,7 +5,10 @@ import 'log.dart';
 class ConsolePrettyLog implements Log {
   final logger = Logger(
     filter: ProductionFilter(),
-    printer: PrefixPrinter(PrettyPrinter(methodCount: 0, noBoxingByDefault: true, printEmojis: false)),
+    printer: PrefixPrinter(
+      PrettyPrinter(methodCount: 0, noBoxingByDefault: true, printEmojis: false),
+      verbose: 'NETWORK',
+    ),
   );
 
   @override

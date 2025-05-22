@@ -1,11 +1,10 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:YDsync/core/data/network/constants.dart';
-import 'package:YDsync/core/data/network/interceptors/host_selection_interceptor.dart';
 import 'package:YDsync/core/data/network/proxy/proxy.dart';
 import 'package:YDsync/environment/loggers/log.dart';
+import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 export 'package:dio/dio.dart' show Dio;
 
@@ -20,7 +19,7 @@ class DioFactory {
     final dio = Dio(_defaultOptions);
     dio.options.baseUrl = config.baseUrl;
 
-    dio.interceptors.add(HostSelectionInterceptor());
+    // dio.interceptors.add(HostSelectionInterceptor());
     dio.interceptors.add(
       PrettyDioLogger(
         compact: false,

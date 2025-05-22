@@ -1,6 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:YDsync/core/app_global/auth_notifier.dart';
 import 'package:YDsync/core/app_global/setting_notifier.dart';
 import 'package:YDsync/core/i10n/strings.g.dart';
@@ -8,6 +5,9 @@ import 'package:YDsync/core/ui/themes/app_themes.dart';
 import 'package:YDsync/core/ui/utils/widget_extenstions.dart';
 import 'package:YDsync/environment/environments.dart';
 import 'package:YDsync/environment/loggers/log.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_router.dart';
 import 'fast_setting_modal.dart';
@@ -31,10 +31,10 @@ class _AppWidgetState extends State<AppWidget> with WidgetsBindingObserver {
       switch (authStateNotificator.value) {
         case AuthState.noAuth:
           // login route
-          _appRouter.replace(const WelcomeRoute());
+          _appRouter.replace(const TempLoginRoute());
         case AuthState.auth:
           // main route
-          _appRouter.replace(const ProfileRoute());
+          _appRouter.replace(const DiskSyncRoute());
         case AuthState.waitCheck:
         // main splash or some loader screen
       }
