@@ -28,7 +28,7 @@ class _DiskSyncScreenState extends State<_DiskSyncScreen> {
   @override
   void initState() {
     super.initState();
-    context.bloc<DiskSyncBloc>().getFiles();
+    context.bloc<DiskSyncBloc>().getDiskFiles();
   }
 
   @override
@@ -39,49 +39,74 @@ class _DiskSyncScreenState extends State<_DiskSyncScreen> {
       child: Scaffold(
         backgroundColor: context.colors.backgroundNegativePrimary,
         body: BlocBuilder<DiskSyncBloc, DiskSyncState>(
-          builder:
-              (contrext, state) => Padding(
-                padding: const EdgeInsets.all(16),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      FilledButton(
-                        onPressed: () {
-                          context.bloc<DiskSyncBloc>().getFiles();
-                        },
-                        child: const Text("GET FILES"),
-                      ),
-                      const SizedBox(height: 32),
-                      Text(state.items.isLoading.toString()),
-                      Text(state.items.isSuccess.toString()),
-                      Text(state.items.isError.toString()),
-                      Text(state.items.data?.length.toString() ?? '--'),
-                      const SizedBox(height: 32),
-                      if (state.items.isSuccess)
-                        ...state.items.data!
-                            .mapIndexed(
-                              (e, i) => Container(
-                                padding: EdgeInsets.all(4),
-                                color: i % 2 == 0 ? Colors.white30 : Colors.white54,
-                                child: Row(
-                                  children: [
-                                    Expanded(child: Text(e.name ?? '---')),
-                                    const SizedBox(width: 8),
-                                    switch (e.type) {
-                                      null => const SizedBox.shrink(),
-                                      FolderType.dir => Icon(Icons.folder),
-                                      FolderType.file => Icon(Icons.file_copy),
-                                    },
-                                  ],
-                                ),
+          builder: (contrext, state) {
+            final localList = state.localItems.data?.map((e) => e.name) ?? [];
+
+            // state.diskItems.data?.forEach(print);
+
+            return Padding(
+              padding: const EdgeInsets.all(16),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    FilledButton(
+                      onPressed: () {
+                        context.bloc<DiskSyncBloc>().getDiskFiles();
+                      },
+                      child: state.diskItems.isLoading ? CircularProgressIndicator() : const Text("GET FILES"),
+                    ),
+                    FilledButton(
+                      onPressed: () {
+                        context.bloc<DiskSyncBloc>().getLocalFiles();
+                      },
+                      child: state.localItems.isLoading ? CircularProgressIndicator() : const Text("GET LOCAL FILES"),
+                    ),
+                    const SizedBox(height: 32),
+                    Text(state.diskItems.isLoading.toString()),
+                    Text(state.diskItems.isSuccess.toString()),
+                    Text(state.diskItems.isError.toString()),
+                    Text(state.diskItems.data?.length.toString() ?? '--'),
+                    const SizedBox(height: 32),
+                    if (state.diskItems.isSuccess)
+                      ...state.diskItems.data!
+                          .mapIndexed(
+                            (e, i) => Container(
+                              padding: EdgeInsets.all(4),
+                              color: i % 2 == 0 ? Colors.white30 : Colors.white54,
+                              child: Row(
+                                children: [
+                                  Expanded(child: Text(e.name ?? '---')),
+                                  const SizedBox(width: 8),
+                                  if (localList.contains(e.name))
+                                    Icon(Icons.check_box)
+                                  else
+                                    GestureDetector(
+                                      onTap: () {
+                                        // if(state.downloadFile.isLoading) return;
+                                        context.bloc<DiskSyncBloc>().downloadFile(e);
+                                      },
+                                      child:
+                                          state.downloadFile.data == e
+                                              ? SizedBox.square(dimension: 20, child: CircularProgressIndicator())
+                                              : Icon(Icons.sync),
+                                    ),
+                                  const SizedBox(width: 8),
+                                  switch (e.type) {
+                                    null => const SizedBox.shrink(),
+                                    FolderType.dir => Icon(Icons.folder),
+                                    FolderType.file => Icon(Icons.file_copy),
+                                  },
+                                ],
                               ),
-                            )
-                            .toList(),
-                      if (state.items.isLoading) CircularProgressIndicator(),
-                    ],
-                  ),
+                            ),
+                          )
+                          .toList(),
+                    if (state.diskItems.isLoading) CircularProgressIndicator(),
+                  ],
                 ),
               ),
+            );
+          },
         ),
       ),
     );

@@ -1,10 +1,12 @@
+import 'dart:io';
+
 import 'package:YDsync/feature/disk_sync/data/models/resource_list.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'disk_sync_service.g.dart';
+part 'disk_sync_service_g.dart';
 
-@RestApi()
+// @RestApi()
 abstract class DiskSyncService {
   factory DiskSyncService(Dio dio, {String baseUrl}) = _DiskSyncService;
 
@@ -20,4 +22,10 @@ abstract class DiskSyncService {
     // modified (дата изменения ресурса);
     // size (размер файла).
   });
+
+  Future<bool> downloadFile({
+    required String fileUrl,
+    required String filePath,
+  });
+
 }

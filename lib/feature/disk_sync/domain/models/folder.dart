@@ -1,3 +1,4 @@
+import 'package:YDsync/core/constants/ui_constants.dart';
 import 'package:YDsync/feature/disk_sync/data/models/resource_list.dart';
 
 class FolderItem {
@@ -10,15 +11,19 @@ class FolderItem {
   final DateTime? updatedAt;
   final FolderType? type;
 
+  String get noDiskPath => path?.replaceAll('disk:/', '') ?? '';
+
+  String get noDiskPathNoName => noDiskPath.replaceAll(name ?? '', '');
+
   FolderItem({
     required this.id,
-    required this.name,
-    required this.path,
-    required this.previewUrl,
-    required this.downloadUrl,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.type,
+    this.name,
+    this.path,
+    this.previewUrl,
+    this.downloadUrl,
+    this.createdAt,
+    this.updatedAt,
+    this.type,
   });
 
   factory FolderItem.fromDto(Resource dto) => FolderItem(
@@ -31,4 +36,9 @@ class FolderItem {
     updatedAt: dto.modified,
     type: dto.type,
   );
+
+  @override
+  String toString() {
+    return 'FolderItem{id: $id, name: $name, path: $path, updatedAt: $updatedAt}';
+  }
 }

@@ -24,6 +24,7 @@ class AuthInterceptor extends QueuedInterceptorsWrapper {
 
   @override
   Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
+    print('!!!DEBUG: AuthInterceptor:onError: $err');
     final authToken = repository.token;
 
     if (err.response == null) return handler.next(err);
